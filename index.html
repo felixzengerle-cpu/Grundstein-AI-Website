@@ -539,6 +539,77 @@ section { padding: 6rem 2rem; }
 
 .team-member a:hover { text-decoration: underline; }
 
+/* === FOUNDER STORY TEASER === */
+.founder-teaser {
+  margin-top: 3rem;
+  padding: 2rem 2.5rem;
+  background: var(--navy);
+  border: 1px solid rgba(100, 116, 139, 0.12);
+  border-left: 3px solid var(--emerald);
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  transition: border-color 0.3s;
+}
+
+.founder-teaser:hover {
+  border-left-color: var(--emerald-dark);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.founder-teaser-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 0.5rem;
+}
+
+.founder-teaser-quote {
+  font-size: 1.05rem;
+  color: var(--white);
+  line-height: 1.55;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.founder-teaser-meta {
+  font-size: 0.82rem;
+  color: var(--slate-light);
+}
+
+.founder-teaser-cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--emerald-glow);
+  color: var(--emerald);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.founder-teaser-cta:hover {
+  background: var(--emerald);
+  color: var(--navy);
+}
+
+@media (max-width: 640px) {
+  .founder-teaser {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+}
+
 /* === CTA === */
 .final-cta {
   text-align: center;
@@ -908,6 +979,17 @@ footer a:hover { color: var(--emerald); }
           <a href="https://www.linkedin.com/in/leonkroll/" target="_blank">LinkedIn →</a>
         </div>
       </div>
+
+      <!-- Founder Story Teaser -->
+      <div class="founder-teaser fade-in">
+        <div>
+          <div class="founder-teaser-label">Founder Story</div>
+          <div class="founder-teaser-quote">„Die meisten Handwerker scheitern nicht an der Technik auf der Baustelle. Sie scheitern am Papierkram danach."</div>
+          <div class="founder-teaser-meta">Jonathan Sperl · Co-Founder &amp; Industry Lead · 7 min Lesezeit</div>
+        </div>
+        <a href="grundstein-ai-jonathan-sperl-interview.html" class="founder-teaser-cta">Interview lesen →</a>
+      </div>
+
     </div>
   </section>
 
