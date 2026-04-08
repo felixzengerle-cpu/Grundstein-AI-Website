@@ -51,14 +51,15 @@ nav {
 }
 
 .nav-logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--white);
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-.nav-logo span { color: var(--emerald); }
+.nav-logo img {
+  height: 36px;
+  width: auto;
+}
 
 .nav-links {
   display: flex;
@@ -796,7 +797,9 @@ footer a:hover { color: var(--emerald); }
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo" onclick="showPage('home')">Grundstein<span>AI</span></a>
+  <a href="#" class="nav-logo" onclick="showPage('home')">
+    <img src="images/logo.png" alt="Grundstein AI">
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#problem" onclick="showPage('home')">Problem</a></li>
     <li><a href="#solution" onclick="showPage('home')">Lösung</a></li>
