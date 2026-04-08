@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grundstein AI — Dein Betrieb. Dein System. In Minuten.</title>
+<meta name="description" content="Grundstein AI baut dir ein ERP-System, das zu deinem Handwerksbetrieb passt. Kein IT-Team. Keine Berater. Einfach beschreiben, was du brauchst.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0F1B2D;
+  --navy-light: #162236;
+  --navy-card: #1A2A40;
+  --slate: #64748B;
+  --slate-light: #94A3B8;
+  --emerald: #10B981;
+  --emerald-dark: #0D9668;
+  --emerald-glow: rgba(16, 185, 129, 0.15);
+  --white: #FFFFFF;
+  --gray-light: #F1F5F9;
+  --text-muted: #8899AA;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === NAV === */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1rem 2rem;
+  background: rgba(15, 27, 45, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(100, 116, 139, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.nav-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--emerald); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--slate-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--navy) !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover { background: var(--emerald-dark) !important; }
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* === SECTIONS === */
+section { padding: 6rem 2rem; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--emerald);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--slate-light);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* === HERO === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--emerald-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--emerald);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 20px;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--emerald);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--slate-light);
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--emerald);
+  color: var(--navy);
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  background: var(--emerald-dark);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--slate-light);
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--slate-light);
+  color: var(--white);
+}
+
+/* === PROBLEM === */
+.problem { background: var(--navy-light); }
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.problem-card {
+  background: var(--navy);
+  border: 1px solid rgba(100, 116, 139, 0.15);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--emerald), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.problem-card:hover::before { opacity: 1; }
+.problem-card:hover { border-color: rgba(100, 116, 139, 0.3); transform: translateY(-2px); }
+
+.problem-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--emerald-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  font-size: 1.2rem;
+}
+
+.problem-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.problem-card p {
+  color: var(--slate-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* === SOLUTION === */
+.solution-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.solution-text p {
+  color: var(--slate-light);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.solution-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.solution-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--slate-light);
+  font-size: 0.95rem;
+}
+
+.step-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--emerald);
+  background: var(--emerald-glow);
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.solution-visual {
+  background: var(--navy-card);
+  border: 1px solid rgba(100, 116, 139, 0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mock-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mock-msg {
+  padding: 0.85rem 1.1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 85%;
+  animation: fadeSlideUp 0.5s ease both;
+}
+
+.mock-msg.user {
+  background: rgba(100, 116, 139, 0.15);
+  color: var(--slate-light);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.mock-msg.ai {
+  background: var(--emerald-glow);
+  color: var(--emerald);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.mock-msg.ai .msg-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-bottom: 0.3rem;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === MODULES === */
+.modules { background: var(--navy-light); }
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.module-card {
+  background: var(--navy);
+  border: 1px solid rgba(100, 116, 139, 0.12);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.module-card:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+.module-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--emerald);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.module-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.module-card p {
+  color: var(--slate-light);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.module-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.modules-bottom-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+/* === STATS === */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat-card { text-align: center; }
+
+.stat-number {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--emerald);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--slate-light);
+  font-size: 0.95rem;
+}
+
+/* === ABOUT === */
+.about { background: var(--navy-light); }
+
+.about-text {
+  color: var(--slate-light);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 650px;
+  margin-bottom: 3rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.team-member {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--navy);
+  border: 1px solid rgba(100, 116, 139, 0.12);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.team-member:hover { border-color: rgba(16, 185, 129, 0.3); }
+
+.team-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--navy-card);
+  border: 2px solid rgba(100, 116, 139, 0.2);
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--slate);
+}
+
+.team-member h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.team-member .role {
+  font-size: 0.78rem;
+  color: var(--slate);
+  margin-bottom: 0.75rem;
+}
+
+.team-member a {
+  font-size: 0.78rem;
+  color: var(--emerald);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.team-member a:hover { text-decoration: underline; }
+
+/* === CTA === */
+.final-cta {
+  text-align: center;
+  position: relative;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--emerald-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta .section-title { margin: 0 auto 0.75rem; }
+.final-cta .section-subtitle { margin: 0 auto 2.5rem; text-align: center; }
+
+/* === CONTACT === */
+.contact-page {
+  min-height: 100vh;
+  padding-top: 8rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--slate-light);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--navy-card);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  border-radius: 8px;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--emerald);
+}
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.form-group select option { background: var(--navy-card); color: var(--white); }
+
+.contact-info h3 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  color: var(--slate-light);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-links a {
+  color: var(--emerald);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.contact-links a:hover { opacity: 0.8; }
+
+/* === FOOTER === */
+footer {
+  padding: 2.5rem 2rem;
+  border-top: 1px solid rgba(100, 116, 139, 0.12);
+  text-align: center;
+}
+
+footer p {
+  color: var(--slate);
+  font-size: 0.82rem;
+}
+
+footer a { color: var(--slate-light); text-decoration: none; }
+footer a:hover { color: var(--emerald); }
+
+/* === DIVIDER === */
+.divider {
+  width: 60px;
+  height: 2px;
+  background: var(--emerald);
+  margin-bottom: 2rem;
+  border-radius: 2px;
+}
+
+/* === PAGE VISIBILITY === */
+.page { display: none; }
+.page.active { display: block; }
+
+/* === ANIMATIONS === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .problem-grid,
+  .stats-grid { grid-template-columns: 1fr; }
+
+  .modules-grid { grid-template-columns: 1fr; }
+  .modules-bottom-row { grid-template-columns: 1fr; }
+
+  .solution-content { grid-template-columns: 1fr; }
+
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .contact-grid { grid-template-columns: 1fr; }
+
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(100, 116, 139, 0.15);
+    gap: 1rem;
+  }
+  .mobile-toggle { display: block; }
+}
+
+@media (max-width: 600px) {
+  section { padding: 4rem 1.25rem; }
+  .team-grid { grid-template-columns: 1fr; }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons a { text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showPage('home')">Grundstein<span>AI</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#problem" onclick="showPage('home')">Problem</a></li>
+    <li><a href="#solution" onclick="showPage('home')">Lösung</a></li>
+    <li><a href="#modules" onclick="showPage('home')">Module</a></li>
+    <li><a href="#about" onclick="showPage('home')">Über uns</a></li>
+    <li><a href="#" class="nav-cta" onclick="showPage('contact')">Demo anfragen</a></li>
+  </ul>
+  <button class="mobile-toggle" onclick="toggleNav()">☰</button>
+</nav>
+
+<!-- PAGE 1: HOME -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero-content">
+      <div class="hero-label">⚡ ERP für Handwerksbetriebe</div>
+      <h1>Dein Betrieb.<br>Dein System.<br>In <em>Minuten.</em></h1>
+      <p>Grundstein AI baut dir ein ERP-System, das zu deinem Handwerksbetrieb passt. Kein IT-Team. Keine Berater. Einfach beschreiben, was du brauchst.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary" onclick="showPage('contact')">Demo anfragen →</a>
+        <a href="#solution" class="btn-secondary">So funktioniert's</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem" id="problem">
+    <div class="container">
+      <div class="section-label">Das Problem</div>
+      <h2 class="section-title">Warum kleine Betriebe<br>heute kämpfen</h2>
+      <p class="section-subtitle">70% aller Handwerksbetriebe arbeiten noch mit Excel und Papier. Es gibt keine Lösung, die wirklich zu ihnen passt.</p>
+      <div class="problem-grid">
+        <div class="problem-card fade-in">
+          <div class="problem-icon">📋</div>
+          <h3>Zettelwirtschaft überall</h3>
+          <p>Excel, WhatsApp, Papier, Telefon. Wichtige Infos sind überall verstreut und nirgendwo vollständig.</p>
+        </div>
+        <div class="problem-card fade-in">
+          <div class="problem-icon">🚫</div>
+          <h3>ERP? Zu teuer, zu kompliziert.</h3>
+          <p>Klassische Systeme kosten tausende Euro, brauchen Monate und passen trotzdem nicht zu deinem Betrieb.</p>
+        </div>
+        <div class="problem-card fade-in">
+          <div class="problem-icon">🧠</div>
+          <h3>Der Chef als Zentrale</h3>
+          <p>Alles läuft über den Inhaber. Termine, Aufträge, Rechnungen — das kostet 5 bis 10 Stunden pro Woche.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution" id="solution">
+    <div class="container">
+      <div class="section-label">Unsere Lösung</div>
+      <h2 class="section-title">Dein ERP, gebaut durch<br>ein Gespräch</h2>
+      <div class="solution-content">
+        <div class="solution-text">
+          <p>Beschreib deinen Betrieb in eigenen Worten. Grundstein AI versteht deine Abläufe und erstellt dir ein System, das sofort funktioniert.</p>
+          <ul class="solution-steps">
+            <li><span class="step-num">01</span> Erzähl uns von deinem Betrieb — Größe, Gewerke, Abläufe</li>
+            <li><span class="step-num">02</span> Unsere AI konfiguriert dein System automatisch</li>
+            <li><span class="step-num">03</span> Dein ERP ist sofort einsatzbereit — keine Schulung nötig</li>
+          </ul>
+        </div>
+        <div class="solution-visual">
+          <div class="mock-chat">
+            <div class="mock-msg user">"Wir sind ein Elektrobetrieb mit 8 Mitarbeitern, 2 Teams im Außendienst. Wir brauchen Auftragsplanung, Zeiterfassung und Rechnungen."</div>
+            <div class="mock-msg ai">
+              <div class="msg-label">Grundstein AI</div>
+              Verstanden! Ich erstelle dir ein System mit Auftragsmanagement, Teamplanung, mobiler Zeiterfassung und automatischer Rechnungserstellung mit DATEV-Export. Dein Dashboard ist in 2 Minuten bereit.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section class="modules" id="modules">
+    <div class="container">
+      <div class="section-label">Unsere Module</div>
+      <h2 class="section-title">Fünf Module. Ein System.<br>Alles verbunden.</h2>
+      <p class="section-subtitle">Vom ersten Kundenanruf bis zur bezahlten Rechnung — alles in einem System, das sich deinem Betrieb anpasst.</p>
+      <div class="modules-grid">
+        <div class="module-card fade-in">
+          <div class="module-num">MODUL 01</div>
+          <div class="module-icon">📑</div>
+          <h3>Aufträge, Kunden & Angebote</h3>
+          <p>Kundendaten, Angebotserstellung und Auftragsverwaltung an einem Ort. Vom ersten Kontakt bis zum abgeschlossenen Projekt.</p>
+        </div>
+        <div class="module-card fade-in">
+          <div class="module-num">MODUL 02</div>
+          <div class="module-icon">📅</div>
+          <h3>Teamplanung & Einsätze</h3>
+          <p>Wer arbeitet wo und wann? Kalenderansicht, Drag-and-Drop-Planung und automatische Benachrichtigungen bei Änderungen.</p>
+        </div>
+        <div class="module-card fade-in">
+          <div class="module-num">MODUL 03</div>
+          <div class="module-icon">⏱️</div>
+          <h3>Zeiterfassung & Baustellenberichte</h3>
+          <p>Stunden, Material und Fortschritt direkt vom Handy erfassen. Die Brücke zwischen Baustelle und Büro.</p>
+        </div>
+      </div>
+      <div class="modules-bottom-row">
+        <div class="module-card fade-in">
+          <div class="module-num">MODUL 04</div>
+          <div class="module-icon">🧾</div>
+          <h3>Rechnungen & DATEV-Export</h3>
+          <p>Rechnungen automatisch aus erfassten Stunden und Material erstellen. Direkt exportierbar an deinen Steuerberater.</p>
+        </div>
+        <div class="module-card fade-in">
+          <div class="module-num">MODUL 05</div>
+          <div class="module-icon">📊</div>
+          <h3>Dashboard & Überblick</h3>
+          <p>Morgens öffnen, sofort wissen wo alles steht. Aufträge, Umsatz, Team und offene Aufgaben auf einen Blick.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="section-label">Validiert</div>
+      <h2 class="section-title">Was wir von echten Betrieben gelernt haben</h2>
+      <div class="stats-grid">
+        <div class="stat-card fade-in">
+          <div class="stat-number">12+</div>
+          <div class="stat-label">Interviews mit Handwerksbetrieben</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number">70%</div>
+          <div class="stat-label">arbeiten noch mit Excel und Papier</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number">5–10h</div>
+          <div class="stat-label">Admin-Aufwand pro Woche beim Inhaber</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-label">Über uns</div>
+      <h2 class="section-title">Wer steckt hinter Grundstein?</h2>
+      <p class="about-text">Fünf Studenten der Nova SBE mit einem gemeinsamen Ziel: Handwerksbetrieben ein Werkzeug zu geben, das wirklich zu ihnen passt. Einfach, bezahlbar und sofort einsatzbereit. Entstanden aus echten Gesprächen mit echten Betrieben.</p>
+      <div class="team-grid">
+        <div class="team-member fade-in">
+          <div class="team-avatar">FZ</div>
+          <h4>Felix Zengerle</h4>
+          <div class="role">CXO</div>
+          <a href="https://www.linkedin.com/in/felix-zengerle-9b8294208/" target="_blank">LinkedIn →</a>
+        </div>
+        <div class="team-member fade-in">
+          <div class="team-avatar">JG</div>
+          <h4>Jasper Gräfe</h4>
+          <div class="role">Product</div>
+          <a href="https://www.linkedin.com/in/jasper-graefe/" target="_blank">LinkedIn →</a>
+        </div>
+        <div class="team-member fade-in">
+          <div class="team-avatar">JD</div>
+          <h4>Jonathan Daller</h4>
+          <div class="role">Market Research</div>
+          <a href="https://www.linkedin.com/in/jonathan-daller-aba171255/" target="_blank">LinkedIn →</a>
+        </div>
+        <div class="team-member fade-in">
+          <div class="team-avatar">JS</div>
+          <h4>Jonathan Sperl</h4>
+          <div class="role">Strategy</div>
+          <a href="https://www.linkedin.com/in/jonathan-sperl-012458244/" target="_blank">LinkedIn →</a>
+        </div>
+        <div class="team-member fade-in">
+          <div class="team-avatar">LK</div>
+          <h4>Leon Kroll</h4>
+          <div class="role">Marketing</div>
+          <a href="https://www.linkedin.com/in/leonkroll/" target="_blank">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="cta">
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-label">Loslegen</div>
+      <h2 class="section-title">Bereit, Excel hinter dir<br>zu lassen?</h2>
+      <p class="section-subtitle" style="margin:0 auto 2.5rem;text-align:center;">Sieh selbst, wie einfach ERP sein kann. Fordere jetzt eine Demo an.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact')" style="font-size:1.1rem;padding:1rem 2.5rem;">Jetzt Demo anfragen →</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- PAGE 2: CONTACT -->
+<div id="page-contact" class="page">
+  <section class="contact-page">
+    <div class="container">
+      <div class="section-label">Kontakt</div>
+      <h2 class="section-title">Lass uns sprechen</h2>
+      <p class="section-subtitle">Ob Demo, Fragen oder Feedback — wir freuen uns auf deine Nachricht.</p>
+      <div class="contact-grid">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Max Mustermann" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" placeholder="max@firma.de" required>
+          </div>
+          <div class="form-group">
+            <label for="company">Firmenname</label>
+            <input type="text" id="company" placeholder="Mustermann Elektro GmbH">
+          </div>
+          <div class="form-group">
+            <label for="size">Anzahl Mitarbeiter</label>
+            <select id="size">
+              <option value="">Bitte wählen</option>
+              <option value="1-5">1–5 Mitarbeiter</option>
+              <option value="6-10">6–10 Mitarbeiter</option>
+              <option value="11-15">11–15 Mitarbeiter</option>
+              <option value="15+">Mehr als 15</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Nachricht</label>
+            <textarea id="message" placeholder="Erzähl uns kurz von deinem Betrieb und was dich interessiert..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Absenden →</button>
+        </form>
+        <div class="contact-info">
+          <h3>Oder direkt erreichen</h3>
+          <p>Wir antworten in der Regel innerhalb von 24 Stunden. Du kannst uns auch direkt über LinkedIn kontaktieren.</p>
+          <ul class="contact-links">
+            <li><a href="https://www.linkedin.com/in/felix-zengerle-9b8294208/" target="_blank">→ Felix Zengerle</a></li>
+            <li><a href="https://www.linkedin.com/in/jasper-graefe/" target="_blank">→ Jasper Gräfe</a></li>
+            <li><a href="https://www.linkedin.com/in/jonathan-daller-aba171255/" target="_blank">→ Jonathan Daller</a></li>
+            <li><a href="https://www.linkedin.com/in/jonathan-sperl-012458244/" target="_blank">→ Jonathan Sperl</a></li>
+            <li><a href="https://www.linkedin.com/in/leonkroll/" target="_blank">→ Leon Kroll</a></li>
+          </ul>
+          <div style="margin-top:2.5rem;padding:1.5rem;background:var(--navy-card);border:1px solid rgba(100,116,139,0.15);border-radius:12px;">
+            <p style="font-size:0.9rem;color:var(--slate-light);margin:0;">
+              <strong style="color:var(--white);">📍 Nova SBE</strong><br>
+              Applied Entrepreneurship Project 2026<br>
+              Gruppe 3
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Grundstein AI — A <a href="https://www2.novasbe.unl.pt/" target="_blank">Nova SBE</a> Applied Entrepreneurship Project</p>
+</footer>
+
+<script>
+// Page switching
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+// Mobile nav toggle
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Form handler
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = '✓ Gesendet!';
+  btn.style.background = 'var(--emerald-dark)';
+  setTimeout(() => {
+    btn.textContent = 'Absenden →';
+    btn.style.background = '';
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
