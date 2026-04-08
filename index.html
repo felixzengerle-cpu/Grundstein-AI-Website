@@ -955,6 +955,175 @@ footer a:hover { color: var(--emerald); }
   .hero-buttons { flex-direction: column; }
   .hero-buttons a { text-align: center; }
 }
+
+/* === SOLUTIONS DETAIL === */
+.solutions-section { background: var(--navy); }
+
+.solutions-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 5rem;
+}
+.solutions-header .section-subtitle { margin: 0 auto; }
+
+.module-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  padding: 4.5rem 0;
+  border-bottom: 1px solid rgba(100, 116, 139, 0.1);
+}
+.module-detail:last-of-type { border-bottom: none; }
+
+.module-detail.reverse .module-img-placeholder { order: 2; }
+.module-detail.reverse .module-detail-text { order: 1; }
+
+.module-img-placeholder {
+  aspect-ratio: 4/3;
+  background: var(--navy-card);
+  border: 1px dashed rgba(100, 116, 139, 0.25);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--slate);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  transition: border-color 0.3s;
+}
+.module-img-placeholder:hover { border-color: rgba(16, 185, 129, 0.3); }
+.placeholder-icon { font-size: 2.25rem; opacity: 0.35; }
+
+.module-detail-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--emerald);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.module-detail-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+
+.module-detail-tagline {
+  font-style: italic;
+  color: var(--emerald);
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  opacity: 0.85;
+}
+
+.module-detail-desc {
+  color: var(--slate-light);
+  font-size: 0.97rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.module-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+.module-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--slate-light);
+  line-height: 1.5;
+}
+.module-bullets li::before {
+  content: '✓';
+  color: var(--emerald);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.module-users-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 20px;
+  font-size: 0.78rem;
+  color: var(--emerald);
+  font-weight: 500;
+}
+.module-users-badge::before { content: '👤'; font-size: 0.75rem; }
+
+/* Solutions comms banner */
+.solutions-comms {
+  margin-top: 5rem;
+  padding: 2.75rem 3rem;
+  background: var(--navy-card);
+  border: 1px solid rgba(100, 116, 139, 0.15);
+  border-left: 3px solid var(--emerald);
+  border-radius: 0 16px 16px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+.solutions-comms-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+.solutions-comms-desc {
+  color: var(--slate-light);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.solutions-comms-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.comms-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--slate-light);
+  white-space: nowrap;
+}
+.comms-tag-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--emerald-glow);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .module-detail { grid-template-columns: 1fr; gap: 2.5rem; }
+  .module-detail.reverse .module-img-placeholder,
+  .module-detail.reverse .module-detail-text { order: unset; }
+  .solutions-comms { grid-template-columns: 1fr; }
+  .solutions-comms-tags { flex-direction: row; flex-wrap: wrap; }
+}
 </style>
 </head>
 <body>
@@ -968,6 +1137,7 @@ footer a:hover { color: var(--emerald); }
     <li><a href="#problem" onclick="showPage('home')">Problem</a></li>
     <li><a href="#solution" onclick="showPage('home')">Lösung</a></li>
     <li><a href="#modules" onclick="showPage('home')">Module</a></li>
+    <li><a href="#solutions" onclick="showPage('home')">Solutions</a></li>
     <li><a href="#about" onclick="showPage('home')">Über uns</a></li>
     <li><a href="#" class="nav-cta" onclick="showPage('contact')">Demo anfragen</a></li>
   </ul>
@@ -1137,6 +1307,142 @@ footer a:hover { color: var(--emerald); }
           <p>Morgens öffnen, sofort wissen wo alles steht. Aufträge, Umsatz, Team und offene Aufgaben auf einen Blick.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS DETAIL -->
+  <section class="solutions-section" id="solutions">
+    <div class="container">
+
+      <div class="solutions-header">
+        <div class="section-label">Our Modules</div>
+        <h2 class="section-title">Five Modules. One System.</h2>
+        <p class="section-subtitle">Each module maps to a real person's daily task — from first customer call to final invoice.</p>
+      </div>
+
+      <!-- Module 1 -->
+      <article class="module-detail fade-in">
+        <div class="module-img-placeholder" id="module-1-image">
+          <div class="placeholder-icon">📑</div>
+          <span>Module screenshot</span>
+        </div>
+        <div class="module-detail-text">
+          <div class="module-detail-num">Module 1</div>
+          <h3 class="module-detail-title">Jobs, Customers & Quotes</h3>
+          <p class="module-detail-tagline">"From first contact to signed contract."</p>
+          <p class="module-detail-desc">This is where everything starts. When a customer calls, you create the job here — scope, location, pricing, crew. Every quote, every document, every status update lives in one place. No more searching through emails or folders. Your entire job pipeline — from inquiry to invoice — is visible at a glance.</p>
+          <ul class="module-bullets">
+            <li>Customer records with full contact details and job history</li>
+            <li>Quote creation with templates, line items, and PDF export</li>
+            <li>Job pipeline view: Inquiry → Quoted → Scheduled → In Progress → Completed → Invoiced → Paid</li>
+            <li>Document storage per job: photos, plans, permits, protocols</li>
+            <li>Job creation with scope, location, pricing, and assigned crew</li>
+          </ul>
+          <div class="module-users-badge">Owner · Office Admin</div>
+        </div>
+      </article>
+
+      <!-- Module 2 -->
+      <article class="module-detail reverse fade-in">
+        <div class="module-img-placeholder" id="module-2-image">
+          <div class="placeholder-icon">📅</div>
+          <span>Module screenshot</span>
+        </div>
+        <div class="module-detail-text">
+          <div class="module-detail-num">Module 2</div>
+          <h3 class="module-detail-title">Team Planning & Scheduling</h3>
+          <p class="module-detail-tagline">"Who works where, when — finally clear."</p>
+          <p class="module-detail-desc">Replaces the chaos of mental calendars and WhatsApp coordination. Your entire crew's week is visible on one screen. Drag a job to a crew member, and they get notified instantly. Sick day? The system flags every affected job so nothing slips through.</p>
+          <ul class="module-bullets">
+            <li>Weekly and daily calendar views per crew or employee</li>
+            <li>Job assignment via drag-and-drop or natural language</li>
+            <li>Absence management: vacation, sick days, availability</li>
+            <li>Automatic push notifications when plans change</li>
+            <li>Conflict detection for double-bookings or unavailable crew</li>
+          </ul>
+          <div class="module-users-badge">Owner · Office Admin</div>
+        </div>
+      </article>
+
+      <!-- Module 3 -->
+      <article class="module-detail fade-in">
+        <div class="module-img-placeholder" id="module-3-image">
+          <div class="placeholder-icon">⏱️</div>
+          <span>Module screenshot</span>
+        </div>
+        <div class="module-detail-text">
+          <div class="module-detail-num">Module 3</div>
+          <h3 class="module-detail-title">Time Tracking & Field Reports</h3>
+          <p class="module-detail-tagline">"What actually happened on site — captured in seconds."</p>
+          <p class="module-detail-desc">The bridge between your field team and your office. Technicians log hours, materials, and notes directly from the job site on their phone. When a job is done, the office knows instantly — no more calling around or waiting for paper timesheets to arrive.</p>
+          <ul class="module-bullets">
+            <li>Mobile-first time entry per job, per worker</li>
+            <li>Start/stop timer or manual hour logging</li>
+            <li>On-site notes, photos, and completion reports</li>
+            <li>Material usage logging per job (type, quantity, source)</li>
+            <li>Real-time field status updates for the office</li>
+          </ul>
+          <div class="module-users-badge">Field Technicians · Crew Leaders</div>
+        </div>
+      </article>
+
+      <!-- Module 4 -->
+      <article class="module-detail reverse fade-in">
+        <div class="module-img-placeholder" id="module-4-image">
+          <div class="placeholder-icon">🧾</div>
+          <span>Module screenshot</span>
+        </div>
+        <div class="module-detail-text">
+          <div class="module-detail-num">Module 4</div>
+          <h3 class="module-detail-title">Invoicing & Billing</h3>
+          <p class="module-detail-tagline">"Completed work becomes money — faster."</p>
+          <p class="module-detail-desc">This is where the system pays for itself. Tracked hours and logged materials flow directly into a professional invoice — no retyping, no forgotten line items. Export to DATEV with one click so your tax advisor stays happy. For public-sector jobs, XRechnung is built in.</p>
+          <ul class="module-bullets">
+            <li>Auto-generate invoices from tracked time and materials</li>
+            <li>Customizable invoice templates with your company branding</li>
+            <li>Invoice status tracking: Draft → Sent → Paid → Overdue</li>
+            <li>DATEV export for seamless tax advisor handoff</li>
+            <li>XRechnung format for public sector clients</li>
+          </ul>
+          <div class="module-users-badge">Office Admin · Owner</div>
+        </div>
+      </article>
+
+      <!-- Module 5 -->
+      <article class="module-detail fade-in">
+        <div class="module-img-placeholder" id="module-5-image">
+          <div class="placeholder-icon">📊</div>
+          <span>Module screenshot</span>
+        </div>
+        <div class="module-detail-text">
+          <div class="module-detail-num">Module 5</div>
+          <h3 class="module-detail-title">Dashboard & Insights</h3>
+          <p class="module-detail-tagline">"Open it in the morning, know where everything stands."</p>
+          <p class="module-detail-desc">The reward for using the other four modules. One screen that gives you full operational visibility — which jobs are on track, who's available, what's overdue, and how much revenue is in the pipeline. No spreadsheets. No guessing. Just clarity.</p>
+          <ul class="module-bullets">
+            <li>Job pipeline overview: open, in progress, completed, overdue</li>
+            <li>Revenue snapshot: invoiced, paid, outstanding</li>
+            <li>Team utilization: who's busy, who's available this week</li>
+            <li>Alerts and to-dos: overdue invoices, missing time entries</li>
+            <li>Weekly summary with key business numbers at a glance</li>
+          </ul>
+          <div class="module-users-badge">Owner</div>
+        </div>
+      </article>
+
+      <!-- Cross-cutting comms section -->
+      <div class="solutions-comms fade-in">
+        <div>
+          <div class="solutions-comms-title">Built-In Communication — No More WhatsApp Chaos</div>
+          <p class="solutions-comms-desc">Every module includes job-level comments, push notifications, and an activity feed. Your team stays in sync without scattered messages, missed calls, or "I didn't see the update" excuses.</p>
+        </div>
+        <div class="solutions-comms-tags">
+          <div class="comms-tag"><div class="comms-tag-icon">💬</div>Job-level comments</div>
+          <div class="comms-tag"><div class="comms-tag-icon">🔔</div>Push notifications</div>
+          <div class="comms-tag"><div class="comms-tag-icon">📋</div>Activity feed</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
