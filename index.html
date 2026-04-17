@@ -90,6 +90,12 @@ nav {
 
 .nav-cta:hover { background: var(--emerald-dark) !important; }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .lang-switcher {
   background: transparent;
   border: 1px solid rgba(100, 116, 139, 0.3);
@@ -1149,14 +1155,16 @@ footer a:hover { color: var(--emerald); }
   <a href="#" class="nav-logo" onclick="showPage('home')">
     <img src="images/logo_white.png" alt="Grundstein AI">
   </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#problem" onclick="showPage('home')" data-i18n="nav_problem">Problem</a></li>
-    <li><a href="#solution" onclick="showPage('home')" data-i18n="nav_solution">Lösung</a></li>
-    <li><a href="#solutions" onclick="showPage('home')" data-i18n="nav_modules">Module</a></li>
-    <li><a href="#about" onclick="showPage('home')" data-i18n="nav_about">Über uns</a></li>
-    <li><a href="#" class="nav-cta" onclick="showPage('contact')" data-i18n="nav_cta">Demo anfragen</a></li>
-  </ul>
-  <button class="lang-switcher" id="langBtn" onclick="toggleLang()">EN</button>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#problem" onclick="showPage('home')" data-i18n="nav_problem">Problem</a></li>
+      <li><a href="#solution" onclick="showPage('home')" data-i18n="nav_solution">Lösung</a></li>
+      <li><a href="#solutions" onclick="showPage('home')" data-i18n="nav_modules">Module</a></li>
+      <li><a href="#about" onclick="showPage('home')" data-i18n="nav_about">Über uns</a></li>
+      <li><a href="#" class="nav-cta" onclick="showPage('contact')" data-i18n="nav_cta">Demo anfragen</a></li>
+    </ul>
+    <button class="lang-switcher" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
   <button class="mobile-toggle" onclick="toggleNav()">☰</button>
 </nav>
 
