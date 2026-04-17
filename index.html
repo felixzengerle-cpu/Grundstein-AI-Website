@@ -111,6 +111,34 @@ nav {
 }
 .lang-switcher:hover { border-color: var(--emerald); color: var(--emerald); }
 
+.nav-auth { display: flex; align-items: center; gap: 0.5rem; }
+.nav-login {
+  background: transparent;
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  color: var(--slate-light);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-login:hover { border-color: var(--slate-light); color: var(--white); }
+.nav-signup {
+  background: var(--emerald-glow);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--emerald);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-signup:hover { background: var(--emerald); color: var(--navy); }
+
 .mobile-toggle {
   display: none;
   background: none;
@@ -1163,6 +1191,10 @@ footer a:hover { color: var(--emerald); }
       <li><a href="#about" onclick="showPage('home')" data-i18n="nav_about">Über uns</a></li>
       <li><a href="#" class="nav-cta" onclick="showPage('contact')" data-i18n="nav_cta">Demo anfragen</a></li>
     </ul>
+    <div class="nav-auth">
+      <a href="#" class="nav-login" data-i18n="nav_login">Anmelden</a>
+      <a href="#" class="nav-signup" data-i18n="nav_signup">Registrieren</a>
+    </div>
     <button class="lang-switcher" id="langBtn" onclick="toggleLang()">EN</button>
   </div>
   <button class="mobile-toggle" onclick="toggleNav()">☰</button>
@@ -1622,6 +1654,7 @@ const translations = {
   de: {
     nav_problem: 'Problem', nav_solution: 'Lösung', nav_modules: 'Module',
     nav_about: 'Über uns', nav_cta: 'Demo anfragen',
+    nav_login: 'Anmelden', nav_signup: 'Registrieren',
     hero_label: '⚡ ERP für Handwerksbetriebe',
     hero_h1: 'Dein Betrieb.<br>Dein System.<br>In <em>Minuten.</em>',
     hero_p: 'Grundstein AI baut dir ein ERP-System, das zu deinem Handwerksbetrieb passt. Kein IT-Team. Keine Berater. Einfach beschreiben, was du brauchst.',
@@ -1723,6 +1756,7 @@ const translations = {
   en: {
     nav_problem: 'Problem', nav_solution: 'Solution', nav_modules: 'Modules',
     nav_about: 'About', nav_cta: 'Request Demo',
+    nav_login: 'Log in', nav_signup: 'Sign up',
     hero_label: '⚡ ERP for Trade Businesses',
     hero_h1: 'Your Business.<br>Your System.<br>In <em>Minutes.</em>',
     hero_p: 'Grundstein AI builds you an ERP system tailored to your trade business. No IT team. No consultants. Just describe what you need.',
