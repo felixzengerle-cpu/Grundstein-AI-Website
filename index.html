@@ -90,6 +90,21 @@ nav {
 
 .nav-cta:hover { background: var(--emerald-dark) !important; }
 
+.lang-switcher {
+  background: transparent;
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  color: var(--slate-light);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+.lang-switcher:hover { border-color: var(--emerald); color: var(--emerald); }
+
 .mobile-toggle {
   display: none;
   background: none;
@@ -1135,13 +1150,13 @@ footer a:hover { color: var(--emerald); }
     <img src="images/logo_white.png" alt="Grundstein AI">
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#problem" onclick="showPage('home')">Problem</a></li>
-    <li><a href="#solution" onclick="showPage('home')">Lösung</a></li>
-    <li><a href="#modules" onclick="showPage('home')">Module</a></li>
-    <li><a href="#solutions" onclick="showPage('home')">Module</a></li>
-    <li><a href="#about" onclick="showPage('home')">Über uns</a></li>
-    <li><a href="#" class="nav-cta" onclick="showPage('contact')">Demo anfragen</a></li>
+    <li><a href="#problem" onclick="showPage('home')" data-i18n="nav_problem">Problem</a></li>
+    <li><a href="#solution" onclick="showPage('home')" data-i18n="nav_solution">Lösung</a></li>
+    <li><a href="#solutions" onclick="showPage('home')" data-i18n="nav_modules">Module</a></li>
+    <li><a href="#about" onclick="showPage('home')" data-i18n="nav_about">Über uns</a></li>
+    <li><a href="#" class="nav-cta" onclick="showPage('contact')" data-i18n="nav_cta">Demo anfragen</a></li>
   </ul>
+  <button class="lang-switcher" id="langBtn" onclick="toggleLang()">EN</button>
   <button class="mobile-toggle" onclick="toggleNav()">☰</button>
 </nav>
 
@@ -1152,17 +1167,17 @@ footer a:hover { color: var(--emerald); }
   <section class="hero" id="hero">
     <div class="container hero-content">
       <div class="hero-text">
-        <div class="hero-label">⚡ ERP für Handwerksbetriebe</div>
-        <h1>Dein Betrieb.<br>Dein System.<br>In <em>Minuten.</em></h1>
-        <p>Grundstein AI baut dir ein ERP-System, das zu deinem Handwerksbetrieb passt. Kein IT-Team. Keine Berater. Einfach beschreiben, was du brauchst.</p>
+        <div class="hero-label" data-i18n="hero_label">⚡ ERP für Handwerksbetriebe</div>
+        <h1 data-i18n="hero_h1">Dein Betrieb.<br>Dein System.<br>In <em>Minuten.</em></h1>
+        <p data-i18n="hero_p">Grundstein AI baut dir ein ERP-System, das zu deinem Handwerksbetrieb passt. Kein IT-Team. Keine Berater. Einfach beschreiben, was du brauchst.</p>
         <div class="hero-buttons">
-          <a href="#" class="btn-primary" onclick="showPage('contact')">Demo anfragen →</a>
-          <a href="#solution" class="btn-secondary">So funktioniert's</a>
+          <a href="#" class="btn-primary" onclick="showPage('contact')" data-i18n="hero_btn_primary">Demo anfragen →</a>
+          <a href="#solution" class="btn-secondary" data-i18n="hero_btn_secondary">So funktioniert's</a>
         </div>
         <div class="hero-trust">
-          <span>Kein IT-Team nötig</span>
-          <span>Setup in Minuten</span>
-          <span>Kostenlose Demo</span>
+          <span data-i18n="hero_trust_1">Kein IT-Team nötig</span>
+          <span data-i18n="hero_trust_2">Setup in Minuten</span>
+          <span data-i18n="hero_trust_3">Kostenlose Demo</span>
         </div>
       </div>
       <div class="hero-visual">
@@ -1177,37 +1192,37 @@ footer a:hover { color: var(--emerald); }
             <div class="setup-step">
               <div class="step-check">✓</div>
               <div>
-                <div class="step-title">Betrieb beschrieben</div>
-                <div class="step-sub">Elektrobetrieb · 8 Mitarbeiter</div>
+                <div class="step-title" data-i18n="hero_step1_title">Betrieb beschrieben</div>
+                <div class="step-sub" data-i18n="hero_step1_sub">Elektrobetrieb · 8 Mitarbeiter</div>
               </div>
             </div>
             <div class="setup-step">
               <div class="step-check">✓</div>
               <div>
-                <div class="step-title">Module konfiguriert</div>
-                <div class="step-sub">Aufträge · Planung · Rechnungen</div>
+                <div class="step-title" data-i18n="hero_step2_title">Module konfiguriert</div>
+                <div class="step-sub" data-i18n="hero_step2_sub">Aufträge · Planung · Rechnungen</div>
               </div>
             </div>
             <div class="setup-step active">
               <div class="step-check">↻</div>
               <div>
-                <div class="step-title">Dashboard wird erstellt...</div>
-                <div class="step-sub">Noch ~90 Sekunden</div>
+                <div class="step-title" data-i18n="hero_step3_title">Dashboard wird erstellt...</div>
+                <div class="step-sub" data-i18n="hero_step3_sub">Noch ~90 Sekunden</div>
               </div>
             </div>
           </div>
           <div class="hero-card-stats">
             <div class="hero-stat">
               <div class="hero-stat-num">&lt; 2min</div>
-              <div class="hero-stat-label">Setup-Zeit</div>
+              <div class="hero-stat-label" data-i18n="hero_stat1_label">Setup-Zeit</div>
             </div>
             <div class="hero-stat">
               <div class="hero-stat-num">0€</div>
-              <div class="hero-stat-label">Berater-Kosten</div>
+              <div class="hero-stat-label" data-i18n="hero_stat2_label">Berater-Kosten</div>
             </div>
             <div class="hero-stat">
               <div class="hero-stat-num">100%</div>
-              <div class="hero-stat-label">Zugeschnitten</div>
+              <div class="hero-stat-label" data-i18n="hero_stat3_label">Zugeschnitten</div>
             </div>
           </div>
         </div>
@@ -1218,24 +1233,24 @@ footer a:hover { color: var(--emerald); }
   <!-- PROBLEM -->
   <section class="problem" id="problem">
     <div class="container">
-      <div class="section-label">Das Problem</div>
-      <h2 class="section-title">Warum kleine Betriebe<br>heute kämpfen</h2>
-      <p class="section-subtitle">70% aller Handwerksbetriebe arbeiten noch mit Excel und Papier. Es gibt keine Lösung, die wirklich zu ihnen passt.</p>
+      <div class="section-label" data-i18n="problem_label">Das Problem</div>
+      <h2 class="section-title" data-i18n="problem_title">Warum kleine Betriebe<br>heute kämpfen</h2>
+      <p class="section-subtitle" data-i18n="problem_subtitle">70% aller Handwerksbetriebe arbeiten noch mit Excel und Papier. Es gibt keine Lösung, die wirklich zu ihnen passt.</p>
       <div class="problem-grid">
         <div class="problem-card fade-in">
           <div class="problem-icon">📋</div>
-          <h3>Zettelwirtschaft überall</h3>
-          <p>Excel, WhatsApp, Papier, Telefon. Wichtige Infos sind überall verstreut und nirgendwo vollständig.</p>
+          <h3 data-i18n="prob1_title">Zettelwirtschaft überall</h3>
+          <p data-i18n="prob1_desc">Excel, WhatsApp, Papier, Telefon. Wichtige Infos sind überall verstreut und nirgendwo vollständig.</p>
         </div>
         <div class="problem-card fade-in">
           <div class="problem-icon">🚫</div>
-          <h3>ERP? Zu teuer, zu kompliziert.</h3>
-          <p>Klassische Systeme kosten tausende Euro, brauchen Monate und passen trotzdem nicht zu deinem Betrieb.</p>
+          <h3 data-i18n="prob2_title">ERP? Zu teuer, zu kompliziert.</h3>
+          <p data-i18n="prob2_desc">Klassische Systeme kosten tausende Euro, brauchen Monate und passen trotzdem nicht zu deinem Betrieb.</p>
         </div>
         <div class="problem-card fade-in">
           <div class="problem-icon">🧠</div>
-          <h3>Der Chef als Zentrale</h3>
-          <p>Alles läuft über den Inhaber. Termine, Aufträge, Rechnungen — das kostet 5 bis 10 Stunden pro Woche.</p>
+          <h3 data-i18n="prob3_title">Der Chef als Zentrale</h3>
+          <p data-i18n="prob3_desc">Alles läuft über den Inhaber. Termine, Aufträge, Rechnungen — das kostet 5 bis 10 Stunden pro Woche.</p>
         </div>
       </div>
     </div>
@@ -1244,23 +1259,23 @@ footer a:hover { color: var(--emerald); }
   <!-- SOLUTION -->
   <section class="solution" id="solution">
     <div class="container">
-      <div class="section-label">Unsere Lösung</div>
-      <h2 class="section-title">Dein ERP, gebaut durch<br>ein Gespräch</h2>
+      <div class="section-label" data-i18n="sol_label">Unsere Lösung</div>
+      <h2 class="section-title" data-i18n="sol_title">Dein ERP, gebaut durch<br>ein Gespräch</h2>
       <div class="solution-content">
         <div class="solution-text">
-          <p>Beschreib deinen Betrieb in eigenen Worten. Grundstein AI versteht deine Abläufe und erstellt dir ein System, das sofort funktioniert.</p>
+          <p data-i18n="sol_p">Beschreib deinen Betrieb in eigenen Worten. Grundstein AI versteht deine Abläufe und erstellt dir ein System, das sofort funktioniert.</p>
           <ul class="solution-steps">
-            <li><span class="step-num">01</span> Erzähl uns von deinem Betrieb — Größe, Gewerke, Abläufe</li>
-            <li><span class="step-num">02</span> Unsere AI konfiguriert dein System automatisch</li>
-            <li><span class="step-num">03</span> Dein ERP ist sofort einsatzbereit — keine Schulung nötig</li>
+            <li><span class="step-num">01</span> <span data-i18n="sol_step1">Erzähl uns von deinem Betrieb — Größe, Gewerke, Abläufe</span></li>
+            <li><span class="step-num">02</span> <span data-i18n="sol_step2">Unsere AI konfiguriert dein System automatisch</span></li>
+            <li><span class="step-num">03</span> <span data-i18n="sol_step3">Dein ERP ist sofort einsatzbereit — keine Schulung nötig</span></li>
           </ul>
         </div>
         <div class="solution-visual">
           <div class="mock-chat">
-            <div class="mock-msg user">"Wir sind ein Elektrobetrieb mit 8 Mitarbeitern, 2 Teams im Außendienst. Wir brauchen Auftragsplanung, Zeiterfassung und Rechnungen."</div>
+            <div class="mock-msg user" data-i18n="sol_chat_user">"Wir sind ein Elektrobetrieb mit 8 Mitarbeitern, 2 Teams im Außendienst. Wir brauchen Auftragsplanung, Zeiterfassung und Rechnungen."</div>
             <div class="mock-msg ai">
               <div class="msg-label">Grundstein AI</div>
-              Verstanden! Ich erstelle dir ein System mit Auftragsmanagement, Teamplanung, mobiler Zeiterfassung und automatischer Rechnungserstellung mit DATEV-Export. Dein Dashboard ist in 2 Minuten bereit.
+              <span data-i18n="sol_chat_ai">Verstanden! Ich erstelle dir ein System mit Auftragsmanagement, Teamplanung, mobiler Zeiterfassung und automatischer Rechnungserstellung mit DATEV-Export. Dein Dashboard ist in 2 Minuten bereit.</span>
             </div>
           </div>
         </div>
@@ -1271,41 +1286,41 @@ footer a:hover { color: var(--emerald); }
   <!-- MODULES -->
   <section class="modules" id="modules">
     <div class="container">
-      <div class="section-label">Unsere Module</div>
-      <h2 class="section-title">Fünf Module. Ein System.<br>Alles verbunden.</h2>
-      <p class="section-subtitle">Vom ersten Kundenanruf bis zur bezahlten Rechnung — alles in einem System, das sich deinem Betrieb anpasst.</p>
+      <div class="section-label" data-i18n="mod_label">Unsere Module</div>
+      <h2 class="section-title" data-i18n="mod_title">Fünf Module. Ein System.<br>Alles verbunden.</h2>
+      <p class="section-subtitle" data-i18n="mod_subtitle">Vom ersten Kundenanruf bis zur bezahlten Rechnung — alles in einem System, das sich deinem Betrieb anpasst.</p>
       <div class="modules-grid">
         <div class="module-card fade-in">
           <div class="module-num">MODUL 01</div>
           <div class="module-icon">📑</div>
-          <h3>Aufträge, Kunden & Angebote</h3>
-          <p>Kundendaten, Angebotserstellung und Auftragsverwaltung an einem Ort. Vom ersten Kontakt bis zum abgeschlossenen Projekt.</p>
+          <h3 data-i18n="mod1_title">Aufträge, Kunden & Angebote</h3>
+          <p data-i18n="mod1_desc">Kundendaten, Angebotserstellung und Auftragsverwaltung an einem Ort. Vom ersten Kontakt bis zum abgeschlossenen Projekt.</p>
         </div>
         <div class="module-card fade-in">
           <div class="module-num">MODUL 02</div>
           <div class="module-icon">📅</div>
-          <h3>Teamplanung & Einsätze</h3>
-          <p>Wer arbeitet wo und wann? Kalenderansicht, Drag-and-Drop-Planung und automatische Benachrichtigungen bei Änderungen.</p>
+          <h3 data-i18n="mod2_title">Teamplanung & Einsätze</h3>
+          <p data-i18n="mod2_desc">Wer arbeitet wo und wann? Kalenderansicht, Drag-and-Drop-Planung und automatische Benachrichtigungen bei Änderungen.</p>
         </div>
         <div class="module-card fade-in">
           <div class="module-num">MODUL 03</div>
           <div class="module-icon">⏱️</div>
-          <h3>Zeiterfassung & Baustellenberichte</h3>
-          <p>Stunden, Material und Fortschritt direkt vom Handy erfassen. Die Brücke zwischen Baustelle und Büro.</p>
+          <h3 data-i18n="mod3_title">Zeiterfassung & Baustellenberichte</h3>
+          <p data-i18n="mod3_desc">Stunden, Material und Fortschritt direkt vom Handy erfassen. Die Brücke zwischen Baustelle und Büro.</p>
         </div>
       </div>
       <div class="modules-bottom-row">
         <div class="module-card fade-in">
           <div class="module-num">MODUL 04</div>
           <div class="module-icon">🧾</div>
-          <h3>Rechnungen & DATEV-Export</h3>
-          <p>Rechnungen automatisch aus erfassten Stunden und Material erstellen. Direkt exportierbar an deinen Steuerberater.</p>
+          <h3 data-i18n="mod4_title">Rechnungen & DATEV-Export</h3>
+          <p data-i18n="mod4_desc">Rechnungen automatisch aus erfassten Stunden und Material erstellen. Direkt exportierbar an deinen Steuerberater.</p>
         </div>
         <div class="module-card fade-in">
           <div class="module-num">MODUL 05</div>
           <div class="module-icon">📊</div>
-          <h3>Dashboard & Überblick</h3>
-          <p>Morgens öffnen, sofort wissen wo alles steht. Aufträge, Umsatz, Team und offene Aufgaben auf einen Blick.</p>
+          <h3 data-i18n="mod5_title">Dashboard & Überblick</h3>
+          <p data-i18n="mod5_desc">Morgens öffnen, sofort wissen wo alles steht. Aufträge, Umsatz, Team und offene Aufgaben auf einen Blick.</p>
         </div>
       </div>
     </div>
@@ -1316,9 +1331,9 @@ footer a:hover { color: var(--emerald); }
     <div class="container">
 
       <div class="solutions-header">
-        <div class="section-label">Unsere Module</div>
-        <h2 class="section-title">Fünf Module. Ein System.</h2>
-        <p class="section-subtitle">Jedes Modul deckt eine echte Alltagsaufgabe ab — vom ersten Kundenanruf bis zur bezahlten Rechnung.</p>
+        <div class="section-label" data-i18n="soldet_label">Unsere Module</div>
+        <h2 class="section-title" data-i18n="soldet_title">Fünf Module. Ein System.</h2>
+        <p class="section-subtitle" data-i18n="soldet_subtitle">Jedes Modul deckt eine echte Alltagsaufgabe ab — vom ersten Kundenanruf bis zur bezahlten Rechnung.</p>
       </div>
 
       <!-- Modul 1 -->
@@ -1327,18 +1342,18 @@ footer a:hover { color: var(--emerald); }
           <img src="images/module1_picture.png" alt="Modul 1: Aufträge, Kunden & Angebote">
         </div>
         <div class="module-detail-text">
-          <div class="module-detail-num">Modul 1</div>
-          <h3 class="module-detail-title">Aufträge, Kunden & Angebote</h3>
-          <p class="module-detail-tagline">„Vom ersten Kontakt bis zum unterschriebenen Auftrag."</p>
-          <p class="module-detail-desc">Hier fängt alles an. Wenn ein Kunde anruft, legst du den Auftrag direkt hier an — Umfang, Ort, Preis, Team. Jedes Angebot, jedes Dokument, jeder Statuswechsel ist an einem Ort. Kein Suchen in E-Mails oder Ordnern mehr. Deine gesamte Auftragspipeline — von der Anfrage bis zur Rechnung — auf einen Blick.</p>
+          <div class="module-detail-num" data-i18n="m1d_num">Modul 1</div>
+          <h3 class="module-detail-title" data-i18n="m1d_title">Aufträge, Kunden & Angebote</h3>
+          <p class="module-detail-tagline" data-i18n="m1d_tagline">„Vom ersten Kontakt bis zum unterschriebenen Auftrag."</p>
+          <p class="module-detail-desc" data-i18n="m1d_desc">Hier fängt alles an. Wenn ein Kunde anruft, legst du den Auftrag direkt hier an — Umfang, Ort, Preis, Team. Jedes Angebot, jedes Dokument, jeder Statuswechsel ist an einem Ort. Kein Suchen in E-Mails oder Ordnern mehr. Deine gesamte Auftragspipeline — von der Anfrage bis zur Rechnung — auf einen Blick.</p>
           <ul class="module-bullets">
-            <li>Kundenstamm mit Kontaktdaten und vollständiger Auftragshistorie</li>
-            <li>Angebotserstellung mit Vorlagen, Positionen und PDF-Export</li>
-            <li>Auftragspipeline: Anfrage → Angebot → Geplant → In Arbeit → Abgeschlossen → Abgerechnet → Bezahlt</li>
-            <li>Dokumentenablage pro Auftrag: Fotos, Pläne, Genehmigungen, Protokolle</li>
-            <li>Auftragsanlage mit Umfang, Ort, Kalkulation und zugewiesenem Team</li>
+            <li data-i18n="m1d_b1">Kundenstamm mit Kontaktdaten und vollständiger Auftragshistorie</li>
+            <li data-i18n="m1d_b2">Angebotserstellung mit Vorlagen, Positionen und PDF-Export</li>
+            <li data-i18n="m1d_b3">Auftragspipeline: Anfrage → Angebot → Geplant → In Arbeit → Abgeschlossen → Abgerechnet → Bezahlt</li>
+            <li data-i18n="m1d_b4">Dokumentenablage pro Auftrag: Fotos, Pläne, Genehmigungen, Protokolle</li>
+            <li data-i18n="m1d_b5">Auftragsanlage mit Umfang, Ort, Kalkulation und zugewiesenem Team</li>
           </ul>
-          <div class="module-users-badge">Inhaber · Büro</div>
+          <div class="module-users-badge" data-i18n="m1d_badge">Inhaber · Büro</div>
         </div>
       </article>
 
@@ -1348,18 +1363,18 @@ footer a:hover { color: var(--emerald); }
           <img src="images/module2_picture.png" alt="Modul 2: Teamplanung & Einsätze">
         </div>
         <div class="module-detail-text">
-          <div class="module-detail-num">Modul 2</div>
-          <h3 class="module-detail-title">Teamplanung & Einsätze</h3>
-          <p class="module-detail-tagline">„Wer arbeitet wo, wann — endlich klar."</p>
-          <p class="module-detail-desc">Schluss mit mentalen Kalendern und WhatsApp-Koordination. Die ganze Woche deines Teams ist auf einem Bildschirm sichtbar. Auftrag per Drag-and-Drop zuweisen — der Mitarbeiter wird sofort benachrichtigt. Krankheitsfall? Das System markiert jeden betroffenen Auftrag, damit nichts durchrutscht.</p>
+          <div class="module-detail-num" data-i18n="m2d_num">Modul 2</div>
+          <h3 class="module-detail-title" data-i18n="m2d_title">Teamplanung & Einsätze</h3>
+          <p class="module-detail-tagline" data-i18n="m2d_tagline">„Wer arbeitet wo, wann — endlich klar."</p>
+          <p class="module-detail-desc" data-i18n="m2d_desc">Schluss mit mentalen Kalendern und WhatsApp-Koordination. Die ganze Woche deines Teams ist auf einem Bildschirm sichtbar. Auftrag per Drag-and-Drop zuweisen — der Mitarbeiter wird sofort benachrichtigt. Krankheitsfall? Das System markiert jeden betroffenen Auftrag, damit nichts durchrutscht.</p>
           <ul class="module-bullets">
-            <li>Wochen- und Tagesansicht pro Team oder Mitarbeiter</li>
-            <li>Auftragszuweisung per Drag-and-Drop oder natürlicher Sprache</li>
-            <li>Abwesenheitsverwaltung: Urlaub, Krankmeldungen, Verfügbarkeit</li>
-            <li>Automatische Push-Benachrichtigungen bei Planänderungen</li>
-            <li>Konflikterkennung bei Doppelbelegungen oder nicht verfügbaren Mitarbeitern</li>
+            <li data-i18n="m2d_b1">Wochen- und Tagesansicht pro Team oder Mitarbeiter</li>
+            <li data-i18n="m2d_b2">Auftragszuweisung per Drag-and-Drop oder natürlicher Sprache</li>
+            <li data-i18n="m2d_b3">Abwesenheitsverwaltung: Urlaub, Krankmeldungen, Verfügbarkeit</li>
+            <li data-i18n="m2d_b4">Automatische Push-Benachrichtigungen bei Planänderungen</li>
+            <li data-i18n="m2d_b5">Konflikterkennung bei Doppelbelegungen oder nicht verfügbaren Mitarbeitern</li>
           </ul>
-          <div class="module-users-badge">Inhaber · Büro</div>
+          <div class="module-users-badge" data-i18n="m2d_badge">Inhaber · Büro</div>
         </div>
       </article>
 
@@ -1369,18 +1384,18 @@ footer a:hover { color: var(--emerald); }
           <img src="images/module3_picture.png" alt="Modul 3: Zeiterfassung & Baustellenberichte">
         </div>
         <div class="module-detail-text">
-          <div class="module-detail-num">Modul 3</div>
-          <h3 class="module-detail-title">Zeiterfassung & Baustellenberichte</h3>
-          <p class="module-detail-tagline">„Was auf der Baustelle passiert ist — in Sekunden erfasst."</p>
-          <p class="module-detail-desc">Die Brücke zwischen deinem Außendienst und dem Büro. Monteure erfassen Stunden, Material und Notizen direkt vom Handy auf der Baustelle. Wenn ein Auftrag erledigt ist, weiß das Büro es sofort — kein Anrufen mehr, kein Warten auf Stundenzettel in Papierform.</p>
+          <div class="module-detail-num" data-i18n="m3d_num">Modul 3</div>
+          <h3 class="module-detail-title" data-i18n="m3d_title">Zeiterfassung & Baustellenberichte</h3>
+          <p class="module-detail-tagline" data-i18n="m3d_tagline">„Was auf der Baustelle passiert ist — in Sekunden erfasst."</p>
+          <p class="module-detail-desc" data-i18n="m3d_desc">Die Brücke zwischen deinem Außendienst und dem Büro. Monteure erfassen Stunden, Material und Notizen direkt vom Handy auf der Baustelle. Wenn ein Auftrag erledigt ist, weiß das Büro es sofort — kein Anrufen mehr, kein Warten auf Stundenzettel in Papierform.</p>
           <ul class="module-bullets">
-            <li>Mobile Zeiterfassung pro Auftrag und Mitarbeiter</li>
-            <li>Start/Stopp-Timer oder manuelle Stundeneingabe</li>
-            <li>Notizen, Fotos und Fertigmeldungen vor Ort</li>
-            <li>Materialerfassung pro Auftrag (Art, Menge, Quelle)</li>
-            <li>Echtzeit-Statusupdates für das Büro</li>
+            <li data-i18n="m3d_b1">Mobile Zeiterfassung pro Auftrag und Mitarbeiter</li>
+            <li data-i18n="m3d_b2">Start/Stopp-Timer oder manuelle Stundeneingabe</li>
+            <li data-i18n="m3d_b3">Notizen, Fotos und Fertigmeldungen vor Ort</li>
+            <li data-i18n="m3d_b4">Materialerfassung pro Auftrag (Art, Menge, Quelle)</li>
+            <li data-i18n="m3d_b5">Echtzeit-Statusupdates für das Büro</li>
           </ul>
-          <div class="module-users-badge">Monteure · Kolonnenführer</div>
+          <div class="module-users-badge" data-i18n="m3d_badge">Monteure · Kolonnenführer</div>
         </div>
       </article>
 
@@ -1390,18 +1405,18 @@ footer a:hover { color: var(--emerald); }
           <img src="images/module4_picture.png" alt="Modul 4: Rechnungen & Abrechnung">
         </div>
         <div class="module-detail-text">
-          <div class="module-detail-num">Modul 4</div>
-          <h3 class="module-detail-title">Rechnungen & Abrechnung</h3>
-          <p class="module-detail-tagline">„Geleistete Arbeit wird schneller zu Geld."</p>
-          <p class="module-detail-desc">Hier amortisiert sich das System. Erfasste Stunden und Material fließen direkt in eine professionelle Rechnung — kein Abtippen, keine vergessenen Positionen. DATEV-Export per Klick, damit dein Steuerberater zufrieden ist. Für öffentliche Auftraggeber ist XRechnung bereits integriert.</p>
+          <div class="module-detail-num" data-i18n="m4d_num">Modul 4</div>
+          <h3 class="module-detail-title" data-i18n="m4d_title">Rechnungen & Abrechnung</h3>
+          <p class="module-detail-tagline" data-i18n="m4d_tagline">„Geleistete Arbeit wird schneller zu Geld."</p>
+          <p class="module-detail-desc" data-i18n="m4d_desc">Hier amortisiert sich das System. Erfasste Stunden und Material fließen direkt in eine professionelle Rechnung — kein Abtippen, keine vergessenen Positionen. DATEV-Export per Klick, damit dein Steuerberater zufrieden ist. Für öffentliche Auftraggeber ist XRechnung bereits integriert.</p>
           <ul class="module-bullets">
-            <li>Rechnungen automatisch aus Zeiten und Material erstellen</li>
-            <li>Anpassbare Rechnungsvorlagen mit deinem Firmenlogo</li>
-            <li>Rechnungsstatus: Entwurf → Versendet → Bezahlt → Überfällig</li>
-            <li>DATEV-Export für die reibungslose Übergabe an den Steuerberater</li>
-            <li>XRechnung-Format für öffentliche Auftraggeber</li>
+            <li data-i18n="m4d_b1">Rechnungen automatisch aus Zeiten und Material erstellen</li>
+            <li data-i18n="m4d_b2">Anpassbare Rechnungsvorlagen mit deinem Firmenlogo</li>
+            <li data-i18n="m4d_b3">Rechnungsstatus: Entwurf → Versendet → Bezahlt → Überfällig</li>
+            <li data-i18n="m4d_b4">DATEV-Export für die reibungslose Übergabe an den Steuerberater</li>
+            <li data-i18n="m4d_b5">XRechnung-Format für öffentliche Auftraggeber</li>
           </ul>
-          <div class="module-users-badge">Büro · Inhaber</div>
+          <div class="module-users-badge" data-i18n="m4d_badge">Büro · Inhaber</div>
         </div>
       </article>
 
@@ -1411,31 +1426,31 @@ footer a:hover { color: var(--emerald); }
           <img src="images/module5_picture.png" alt="Modul 5: Dashboard & Überblick">
         </div>
         <div class="module-detail-text">
-          <div class="module-detail-num">Modul 5</div>
-          <h3 class="module-detail-title">Dashboard & Überblick</h3>
-          <p class="module-detail-tagline">„Morgens öffnen, sofort wissen wo alles steht."</p>
-          <p class="module-detail-desc">Die Belohnung für die Nutzung der anderen vier Module. Ein Bildschirm mit vollständiger Betriebsübersicht — welche Aufträge laufen, wer verfügbar ist, was überfällig ist und wie viel Umsatz in der Pipeline steckt. Keine Tabellen. Kein Raten. Nur Klarheit.</p>
+          <div class="module-detail-num" data-i18n="m5d_num">Modul 5</div>
+          <h3 class="module-detail-title" data-i18n="m5d_title">Dashboard & Überblick</h3>
+          <p class="module-detail-tagline" data-i18n="m5d_tagline">„Morgens öffnen, sofort wissen wo alles steht."</p>
+          <p class="module-detail-desc" data-i18n="m5d_desc">Die Belohnung für die Nutzung der anderen vier Module. Ein Bildschirm mit vollständiger Betriebsübersicht — welche Aufträge laufen, wer verfügbar ist, was überfällig ist und wie viel Umsatz in der Pipeline steckt. Keine Tabellen. Kein Raten. Nur Klarheit.</p>
           <ul class="module-bullets">
-            <li>Auftragsübersicht: offen, in Arbeit, abgeschlossen, überfällig</li>
-            <li>Umsatzübersicht: abgerechnet, bezahlt, ausstehend</li>
-            <li>Teamauslastung: wer ist beschäftigt, wer hat diese Woche Kapazität</li>
-            <li>Hinweise und To-dos: überfällige Rechnungen, fehlende Stundeneinträge</li>
-            <li>Wochenübersicht mit den wichtigsten Betriebskennzahlen</li>
+            <li data-i18n="m5d_b1">Auftragsübersicht: offen, in Arbeit, abgeschlossen, überfällig</li>
+            <li data-i18n="m5d_b2">Umsatzübersicht: abgerechnet, bezahlt, ausstehend</li>
+            <li data-i18n="m5d_b3">Teamauslastung: wer ist beschäftigt, wer hat diese Woche Kapazität</li>
+            <li data-i18n="m5d_b4">Hinweise und To-dos: überfällige Rechnungen, fehlende Stundeneinträge</li>
+            <li data-i18n="m5d_b5">Wochenübersicht mit den wichtigsten Betriebskennzahlen</li>
           </ul>
-          <div class="module-users-badge">Inhaber</div>
+          <div class="module-users-badge" data-i18n="m5d_badge">Inhaber</div>
         </div>
       </article>
 
       <!-- Integrierte Kommunikation -->
       <div class="solutions-comms fade-in">
         <div>
-          <div class="solutions-comms-title">Integrierte Kommunikation — Schluss mit WhatsApp-Chaos</div>
-          <p class="solutions-comms-desc">Jedes Modul enthält auftragsbezogene Kommentare, Push-Benachrichtigungen und einen Aktivitäts-Feed. Dein Team bleibt synchron — ohne verstreute Nachrichten, verpasste Anrufe oder „Hab's nicht gesehen"-Ausreden.</p>
+          <div class="solutions-comms-title" data-i18n="comms_title">Integrierte Kommunikation — Schluss mit WhatsApp-Chaos</div>
+          <p class="solutions-comms-desc" data-i18n="comms_desc">Jedes Modul enthält auftragsbezogene Kommentare, Push-Benachrichtigungen und einen Aktivitäts-Feed. Dein Team bleibt synchron — ohne verstreute Nachrichten, verpasste Anrufe oder „Hab's nicht gesehen"-Ausreden.</p>
         </div>
         <div class="solutions-comms-tags">
-          <div class="comms-tag"><div class="comms-tag-icon">💬</div>Auftragskommentare</div>
-          <div class="comms-tag"><div class="comms-tag-icon">🔔</div>Push-Benachrichtigungen</div>
-          <div class="comms-tag"><div class="comms-tag-icon">📋</div>Aktivitäts-Feed</div>
+          <div class="comms-tag"><div class="comms-tag-icon">💬</div><span data-i18n="comms_tag1">Auftragskommentare</span></div>
+          <div class="comms-tag"><div class="comms-tag-icon">🔔</div><span data-i18n="comms_tag2">Push-Benachrichtigungen</span></div>
+          <div class="comms-tag"><div class="comms-tag-icon">📋</div><span data-i18n="comms_tag3">Aktivitäts-Feed</span></div>
         </div>
       </div>
 
@@ -1445,20 +1460,20 @@ footer a:hover { color: var(--emerald); }
   <!-- STATS -->
   <section class="stats" id="stats">
     <div class="container">
-      <div class="section-label">Validiert</div>
-      <h2 class="section-title">Was wir von echten Betrieben gelernt haben</h2>
+      <div class="section-label" data-i18n="stats_label">Validiert</div>
+      <h2 class="section-title" data-i18n="stats_title">Was wir von echten Betrieben gelernt haben</h2>
       <div class="stats-grid">
         <div class="stat-card fade-in">
           <div class="stat-number">12+</div>
-          <div class="stat-label">Interviews mit Handwerksbetrieben</div>
+          <div class="stat-label" data-i18n="stat1_label">Interviews mit Handwerksbetrieben</div>
         </div>
         <div class="stat-card fade-in">
           <div class="stat-number">70%</div>
-          <div class="stat-label">arbeiten noch mit Excel und Papier</div>
+          <div class="stat-label" data-i18n="stat2_label">arbeiten noch mit Excel und Papier</div>
         </div>
         <div class="stat-card fade-in">
           <div class="stat-number">5–10h</div>
-          <div class="stat-label">Admin-Aufwand pro Woche beim Inhaber</div>
+          <div class="stat-label" data-i18n="stat3_label">Admin-Aufwand pro Woche beim Inhaber</div>
         </div>
       </div>
     </div>
@@ -1467,9 +1482,9 @@ footer a:hover { color: var(--emerald); }
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="container">
-      <div class="section-label">Über uns</div>
-      <h2 class="section-title">Wer steckt hinter Grundstein?</h2>
-      <p class="about-text">Fünf Studenten der Nova SBE mit einem gemeinsamen Ziel: Handwerksbetrieben ein Werkzeug zu geben, das wirklich zu ihnen passt. Einfach, bezahlbar und sofort einsatzbereit. Entstanden aus echten Gesprächen mit echten Betrieben.</p>
+      <div class="section-label" data-i18n="about_label">Über uns</div>
+      <h2 class="section-title" data-i18n="about_title">Wer steckt hinter Grundstein?</h2>
+      <p class="about-text" data-i18n="about_text">Fünf Studenten der Nova SBE mit einem gemeinsamen Ziel: Handwerksbetrieben ein Werkzeug zu geben, das wirklich zu ihnen passt. Einfach, bezahlbar und sofort einsatzbereit. Entstanden aus echten Gesprächen mit echten Betrieben.</p>
       <div class="team-grid">
         <div class="team-member fade-in">
           <div class="team-avatar"><img src="images/felix_picture.png" alt="Felix Zengerle"></div>
@@ -1506,11 +1521,11 @@ footer a:hover { color: var(--emerald); }
       <!-- Founder Story Teaser -->
       <div class="founder-teaser fade-in">
         <div>
-          <div class="founder-teaser-label">Founder Story</div>
-          <div class="founder-teaser-quote">„Die meisten Handwerker scheitern nicht an der Technik auf der Baustelle. Sie scheitern am Papierkram danach."</div>
-          <div class="founder-teaser-meta">Jonathan Sperl · Co-Founder &amp; Industry Lead · 7 min Lesezeit</div>
+          <div class="founder-teaser-label" data-i18n="founder_label">Founder Story</div>
+          <div class="founder-teaser-quote" data-i18n="founder_quote">„Die meisten Handwerker scheitern nicht an der Technik auf der Baustelle. Sie scheitern am Papierkram danach."</div>
+          <div class="founder-teaser-meta" data-i18n="founder_meta">Jonathan Sperl · Co-Founder &amp; Industry Lead · 7 min Lesezeit</div>
         </div>
-        <a href="grundstein-ai-jonathan-sperl-interview.html" class="founder-teaser-cta">Interview lesen →</a>
+        <a href="grundstein-ai-jonathan-sperl-interview.html" class="founder-teaser-cta" data-i18n="founder_cta">Interview lesen →</a>
       </div>
 
     </div>
@@ -1519,10 +1534,10 @@ footer a:hover { color: var(--emerald); }
   <!-- FINAL CTA -->
   <section class="final-cta" id="cta">
     <div class="container" style="position:relative;z-index:1;">
-      <div class="section-label">Loslegen</div>
-      <h2 class="section-title">Bereit, Excel hinter dir<br>zu lassen?</h2>
-      <p class="section-subtitle" style="margin:0 auto 2.5rem;text-align:center;">Sieh selbst, wie einfach ERP sein kann. Fordere jetzt eine Demo an.</p>
-      <a href="#" class="btn-primary" onclick="showPage('contact')" style="font-size:1.1rem;padding:1rem 2.5rem;">Jetzt Demo anfragen →</a>
+      <div class="section-label" data-i18n="cta_label">Loslegen</div>
+      <h2 class="section-title" data-i18n="cta_title">Bereit, Excel hinter dir<br>zu lassen?</h2>
+      <p class="section-subtitle" style="margin:0 auto 2.5rem;text-align:center;" data-i18n="cta_subtitle">Sieh selbst, wie einfach ERP sein kann. Fordere jetzt eine Demo an.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact')" style="font-size:1.1rem;padding:1rem 2.5rem;" data-i18n="cta_btn">Jetzt Demo anfragen →</a>
     </div>
   </section>
 
@@ -1532,42 +1547,42 @@ footer a:hover { color: var(--emerald); }
 <div id="page-contact" class="page">
   <section class="contact-page">
     <div class="container">
-      <div class="section-label">Kontakt</div>
-      <h2 class="section-title">Lass uns sprechen</h2>
-      <p class="section-subtitle">Ob Demo, Fragen oder Feedback — wir freuen uns auf deine Nachricht.</p>
+      <div class="section-label" data-i18n="contact_label">Kontakt</div>
+      <h2 class="section-title" data-i18n="contact_title">Lass uns sprechen</h2>
+      <p class="section-subtitle" data-i18n="contact_subtitle">Ob Demo, Fragen oder Feedback — wir freuen uns auf deine Nachricht.</p>
       <div class="contact-grid">
         <form class="contact-form" onsubmit="handleSubmit(event)">
           <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Max Mustermann" required>
+            <label for="name" data-i18n="form_name_label">Name</label>
+            <input type="text" id="name" data-i18n-ph="form_name_ph" placeholder="Max Mustermann" required>
           </div>
           <div class="form-group">
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" placeholder="max@firma.de" required>
+            <label for="email" data-i18n="form_email_label">E-Mail</label>
+            <input type="email" id="email" data-i18n-ph="form_email_ph" placeholder="max@firma.de" required>
           </div>
           <div class="form-group">
-            <label for="company">Firmenname</label>
-            <input type="text" id="company" placeholder="Mustermann Elektro GmbH">
+            <label for="company" data-i18n="form_company_label">Firmenname</label>
+            <input type="text" id="company" data-i18n-ph="form_company_ph" placeholder="Mustermann Elektro GmbH">
           </div>
           <div class="form-group">
-            <label for="size">Anzahl Mitarbeiter</label>
+            <label for="size" data-i18n="form_size_label">Anzahl Mitarbeiter</label>
             <select id="size">
-              <option value="">Bitte wählen</option>
-              <option value="1-5">1–5 Mitarbeiter</option>
-              <option value="6-10">6–10 Mitarbeiter</option>
-              <option value="11-15">11–15 Mitarbeiter</option>
-              <option value="15+">Mehr als 15</option>
+              <option value="" data-i18n="form_size_opt0">Bitte wählen</option>
+              <option value="1-5" data-i18n="form_size_opt1">1–5 Mitarbeiter</option>
+              <option value="6-10" data-i18n="form_size_opt2">6–10 Mitarbeiter</option>
+              <option value="11-15" data-i18n="form_size_opt3">11–15 Mitarbeiter</option>
+              <option value="15+" data-i18n="form_size_opt4">Mehr als 15</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="message">Nachricht</label>
-            <textarea id="message" placeholder="Erzähl uns kurz von deinem Betrieb und was dich interessiert..."></textarea>
+            <label for="message" data-i18n="form_msg_label">Nachricht</label>
+            <textarea id="message" data-i18n-ph="form_msg_ph" placeholder="Erzähl uns kurz von deinem Betrieb und was dich interessiert..."></textarea>
           </div>
-          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Absenden →</button>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;" data-i18n="form_submit">Absenden →</button>
         </form>
         <div class="contact-info">
-          <h3>Oder direkt erreichen</h3>
-          <p>Wir antworten in der Regel innerhalb von 24 Stunden. Du kannst uns auch direkt über LinkedIn kontaktieren.</p>
+          <h3 data-i18n="contact_info_title">Oder direkt erreichen</h3>
+          <p data-i18n="contact_info_p">Wir antworten in der Regel innerhalb von 24 Stunden. Du kannst uns auch direkt über LinkedIn kontaktieren.</p>
           <ul class="contact-links">
             <li><a href="https://www.linkedin.com/in/felix-zengerle-9b8294208/" target="_blank">→ Felix Zengerle</a></li>
             <li><a href="https://www.linkedin.com/in/jasper-graefe/" target="_blank">→ Jasper Gräfe</a></li>
@@ -1590,11 +1605,238 @@ footer a:hover { color: var(--emerald); }
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Grundstein AI — A <a href="https://www2.novasbe.unl.pt/" target="_blank">Nova SBE</a> Applied Entrepreneurship Project</p>
+  <p data-i18n="footer_text">© 2026 Grundstein AI — A <a href="https://www2.novasbe.unl.pt/" target="_blank">Nova SBE</a> Applied Entrepreneurship Project</p>
 </footer>
 
 <script>
-// Page switching
+// ── TRANSLATIONS ──────────────────────────────────────────────
+const translations = {
+  de: {
+    nav_problem: 'Problem', nav_solution: 'Lösung', nav_modules: 'Module',
+    nav_about: 'Über uns', nav_cta: 'Demo anfragen',
+    hero_label: '⚡ ERP für Handwerksbetriebe',
+    hero_h1: 'Dein Betrieb.<br>Dein System.<br>In <em>Minuten.</em>',
+    hero_p: 'Grundstein AI baut dir ein ERP-System, das zu deinem Handwerksbetrieb passt. Kein IT-Team. Keine Berater. Einfach beschreiben, was du brauchst.',
+    hero_btn_primary: 'Demo anfragen →', hero_btn_secondary: 'So funktioniert\'s',
+    hero_trust_1: 'Kein IT-Team nötig', hero_trust_2: 'Setup in Minuten', hero_trust_3: 'Kostenlose Demo',
+    hero_step1_title: 'Betrieb beschrieben', hero_step1_sub: 'Elektrobetrieb · 8 Mitarbeiter',
+    hero_step2_title: 'Module konfiguriert', hero_step2_sub: 'Aufträge · Planung · Rechnungen',
+    hero_step3_title: 'Dashboard wird erstellt...', hero_step3_sub: 'Noch ~90 Sekunden',
+    hero_stat1_label: 'Setup-Zeit', hero_stat2_label: 'Berater-Kosten', hero_stat3_label: 'Zugeschnitten',
+    problem_label: 'Das Problem', problem_title: 'Warum kleine Betriebe<br>heute kämpfen',
+    problem_subtitle: '70% aller Handwerksbetriebe arbeiten noch mit Excel und Papier. Es gibt keine Lösung, die wirklich zu ihnen passt.',
+    prob1_title: 'Zettelwirtschaft überall', prob1_desc: 'Excel, WhatsApp, Papier, Telefon. Wichtige Infos sind überall verstreut und nirgendwo vollständig.',
+    prob2_title: 'ERP? Zu teuer, zu kompliziert.', prob2_desc: 'Klassische Systeme kosten tausende Euro, brauchen Monate und passen trotzdem nicht zu deinem Betrieb.',
+    prob3_title: 'Der Chef als Zentrale', prob3_desc: 'Alles läuft über den Inhaber. Termine, Aufträge, Rechnungen — das kostet 5 bis 10 Stunden pro Woche.',
+    sol_label: 'Unsere Lösung', sol_title: 'Dein ERP, gebaut durch<br>ein Gespräch',
+    sol_p: 'Beschreib deinen Betrieb in eigenen Worten. Grundstein AI versteht deine Abläufe und erstellt dir ein System, das sofort funktioniert.',
+    sol_step1: 'Erzähl uns von deinem Betrieb — Größe, Gewerke, Abläufe',
+    sol_step2: 'Unsere AI konfiguriert dein System automatisch',
+    sol_step3: 'Dein ERP ist sofort einsatzbereit — keine Schulung nötig',
+    sol_chat_user: '"Wir sind ein Elektrobetrieb mit 8 Mitarbeitern, 2 Teams im Außendienst. Wir brauchen Auftragsplanung, Zeiterfassung und Rechnungen."',
+    sol_chat_ai: 'Verstanden! Ich erstelle dir ein System mit Auftragsmanagement, Teamplanung, mobiler Zeiterfassung und automatischer Rechnungserstellung mit DATEV-Export. Dein Dashboard ist in 2 Minuten bereit.',
+    mod_label: 'Unsere Module', mod_title: 'Fünf Module. Ein System.<br>Alles verbunden.',
+    mod_subtitle: 'Vom ersten Kundenanruf bis zur bezahlten Rechnung — alles in einem System, das sich deinem Betrieb anpasst.',
+    mod1_title: 'Aufträge, Kunden & Angebote', mod1_desc: 'Kundendaten, Angebotserstellung und Auftragsverwaltung an einem Ort. Vom ersten Kontakt bis zum abgeschlossenen Projekt.',
+    mod2_title: 'Teamplanung & Einsätze', mod2_desc: 'Wer arbeitet wo und wann? Kalenderansicht, Drag-and-Drop-Planung und automatische Benachrichtigungen bei Änderungen.',
+    mod3_title: 'Zeiterfassung & Baustellenberichte', mod3_desc: 'Stunden, Material und Fortschritt direkt vom Handy erfassen. Die Brücke zwischen Baustelle und Büro.',
+    mod4_title: 'Rechnungen & DATEV-Export', mod4_desc: 'Rechnungen automatisch aus erfassten Stunden und Material erstellen. Direkt exportierbar an deinen Steuerberater.',
+    mod5_title: 'Dashboard & Überblick', mod5_desc: 'Morgens öffnen, sofort wissen wo alles steht. Aufträge, Umsatz, Team und offene Aufgaben auf einen Blick.',
+    soldet_label: 'Unsere Module', soldet_title: 'Fünf Module. Ein System.',
+    soldet_subtitle: 'Jedes Modul deckt eine echte Alltagsaufgabe ab — vom ersten Kundenanruf bis zur bezahlten Rechnung.',
+    m1d_num: 'Modul 1', m1d_title: 'Aufträge, Kunden & Angebote',
+    m1d_tagline: '„Vom ersten Kontakt bis zum unterschriebenen Auftrag."',
+    m1d_desc: 'Hier fängt alles an. Wenn ein Kunde anruft, legst du den Auftrag direkt hier an — Umfang, Ort, Preis, Team. Jedes Angebot, jedes Dokument, jeder Statuswechsel ist an einem Ort. Kein Suchen in E-Mails oder Ordnern mehr. Deine gesamte Auftragspipeline — von der Anfrage bis zur Rechnung — auf einen Blick.',
+    m1d_b1: 'Kundenstamm mit Kontaktdaten und vollständiger Auftragshistorie',
+    m1d_b2: 'Angebotserstellung mit Vorlagen, Positionen und PDF-Export',
+    m1d_b3: 'Auftragspipeline: Anfrage → Angebot → Geplant → In Arbeit → Abgeschlossen → Abgerechnet → Bezahlt',
+    m1d_b4: 'Dokumentenablage pro Auftrag: Fotos, Pläne, Genehmigungen, Protokolle',
+    m1d_b5: 'Auftragsanlage mit Umfang, Ort, Kalkulation und zugewiesenem Team', m1d_badge: 'Inhaber · Büro',
+    m2d_num: 'Modul 2', m2d_title: 'Teamplanung & Einsätze',
+    m2d_tagline: '„Wer arbeitet wo, wann — endlich klar."',
+    m2d_desc: 'Schluss mit mentalen Kalendern und WhatsApp-Koordination. Die ganze Woche deines Teams ist auf einem Bildschirm sichtbar. Auftrag per Drag-and-Drop zuweisen — der Mitarbeiter wird sofort benachrichtigt. Krankheitsfall? Das System markiert jeden betroffenen Auftrag, damit nichts durchrutscht.',
+    m2d_b1: 'Wochen- und Tagesansicht pro Team oder Mitarbeiter',
+    m2d_b2: 'Auftragszuweisung per Drag-and-Drop oder natürlicher Sprache',
+    m2d_b3: 'Abwesenheitsverwaltung: Urlaub, Krankmeldungen, Verfügbarkeit',
+    m2d_b4: 'Automatische Push-Benachrichtigungen bei Planänderungen',
+    m2d_b5: 'Konflikterkennung bei Doppelbelegungen oder nicht verfügbaren Mitarbeitern', m2d_badge: 'Inhaber · Büro',
+    m3d_num: 'Modul 3', m3d_title: 'Zeiterfassung & Baustellenberichte',
+    m3d_tagline: '„Was auf der Baustelle passiert ist — in Sekunden erfasst."',
+    m3d_desc: 'Die Brücke zwischen deinem Außendienst und dem Büro. Monteure erfassen Stunden, Material und Notizen direkt vom Handy auf der Baustelle. Wenn ein Auftrag erledigt ist, weiß das Büro es sofort — kein Anrufen mehr, kein Warten auf Stundenzettel in Papierform.',
+    m3d_b1: 'Mobile Zeiterfassung pro Auftrag und Mitarbeiter',
+    m3d_b2: 'Start/Stopp-Timer oder manuelle Stundeneingabe',
+    m3d_b3: 'Notizen, Fotos und Fertigmeldungen vor Ort',
+    m3d_b4: 'Materialerfassung pro Auftrag (Art, Menge, Quelle)',
+    m3d_b5: 'Echtzeit-Statusupdates für das Büro', m3d_badge: 'Monteure · Kolonnenführer',
+    m4d_num: 'Modul 4', m4d_title: 'Rechnungen & Abrechnung',
+    m4d_tagline: '„Geleistete Arbeit wird schneller zu Geld."',
+    m4d_desc: 'Hier amortisiert sich das System. Erfasste Stunden und Material fließen direkt in eine professionelle Rechnung — kein Abtippen, keine vergessenen Positionen. DATEV-Export per Klick, damit dein Steuerberater zufrieden ist. Für öffentliche Auftraggeber ist XRechnung bereits integriert.',
+    m4d_b1: 'Rechnungen automatisch aus Zeiten und Material erstellen',
+    m4d_b2: 'Anpassbare Rechnungsvorlagen mit deinem Firmenlogo',
+    m4d_b3: 'Rechnungsstatus: Entwurf → Versendet → Bezahlt → Überfällig',
+    m4d_b4: 'DATEV-Export für die reibungslose Übergabe an den Steuerberater',
+    m4d_b5: 'XRechnung-Format für öffentliche Auftraggeber', m4d_badge: 'Büro · Inhaber',
+    m5d_num: 'Modul 5', m5d_title: 'Dashboard & Überblick',
+    m5d_tagline: '„Morgens öffnen, sofort wissen wo alles steht."',
+    m5d_desc: 'Die Belohnung für die Nutzung der anderen vier Module. Ein Bildschirm mit vollständiger Betriebsübersicht — welche Aufträge laufen, wer verfügbar ist, was überfällig ist und wie viel Umsatz in der Pipeline steckt. Keine Tabellen. Kein Raten. Nur Klarheit.',
+    m5d_b1: 'Auftragsübersicht: offen, in Arbeit, abgeschlossen, überfällig',
+    m5d_b2: 'Umsatzübersicht: abgerechnet, bezahlt, ausstehend',
+    m5d_b3: 'Teamauslastung: wer ist beschäftigt, wer hat diese Woche Kapazität',
+    m5d_b4: 'Hinweise und To-dos: überfällige Rechnungen, fehlende Stundeneinträge',
+    m5d_b5: 'Wochenübersicht mit den wichtigsten Betriebskennzahlen', m5d_badge: 'Inhaber',
+    comms_title: 'Integrierte Kommunikation — Schluss mit WhatsApp-Chaos',
+    comms_desc: 'Jedes Modul enthält auftragsbezogene Kommentare, Push-Benachrichtigungen und einen Aktivitäts-Feed. Dein Team bleibt synchron — ohne verstreute Nachrichten, verpasste Anrufe oder „Hab\'s nicht gesehen"-Ausreden.',
+    comms_tag1: 'Auftragskommentare', comms_tag2: 'Push-Benachrichtigungen', comms_tag3: 'Aktivitäts-Feed',
+    stats_label: 'Validiert', stats_title: 'Was wir von echten Betrieben gelernt haben',
+    stat1_label: 'Interviews mit Handwerksbetrieben', stat2_label: 'arbeiten noch mit Excel und Papier',
+    stat3_label: 'Admin-Aufwand pro Woche beim Inhaber',
+    about_label: 'Über uns', about_title: 'Wer steckt hinter Grundstein?',
+    about_text: 'Fünf Studenten der Nova SBE mit einem gemeinsamen Ziel: Handwerksbetrieben ein Werkzeug zu geben, das wirklich zu ihnen passt. Einfach, bezahlbar und sofort einsatzbereit. Entstanden aus echten Gesprächen mit echten Betrieben.',
+    founder_label: 'Founder Story',
+    founder_quote: '„Die meisten Handwerker scheitern nicht an der Technik auf der Baustelle. Sie scheitern am Papierkram danach."',
+    founder_meta: 'Jonathan Sperl · Co-Founder & Industry Lead · 7 min Lesezeit', founder_cta: 'Interview lesen →',
+    cta_label: 'Loslegen', cta_title: 'Bereit, Excel hinter dir<br>zu lassen?',
+    cta_subtitle: 'Sieh selbst, wie einfach ERP sein kann. Fordere jetzt eine Demo an.',
+    cta_btn: 'Jetzt Demo anfragen →',
+    contact_label: 'Kontakt', contact_title: 'Lass uns sprechen',
+    contact_subtitle: 'Ob Demo, Fragen oder Feedback — wir freuen uns auf deine Nachricht.',
+    form_name_label: 'Name', form_name_ph: 'Max Mustermann',
+    form_email_label: 'E-Mail', form_email_ph: 'max@firma.de',
+    form_company_label: 'Firmenname', form_company_ph: 'Mustermann Elektro GmbH',
+    form_size_label: 'Anzahl Mitarbeiter',
+    form_size_opt0: 'Bitte wählen', form_size_opt1: '1–5 Mitarbeiter',
+    form_size_opt2: '6–10 Mitarbeiter', form_size_opt3: '11–15 Mitarbeiter', form_size_opt4: 'Mehr als 15',
+    form_msg_label: 'Nachricht', form_msg_ph: 'Erzähl uns kurz von deinem Betrieb und was dich interessiert...',
+    form_submit: 'Absenden →',
+    contact_info_title: 'Oder direkt erreichen',
+    contact_info_p: 'Wir antworten in der Regel innerhalb von 24 Stunden. Du kannst uns auch direkt über LinkedIn kontaktieren.',
+    footer_text: '© 2026 Grundstein AI — A <a href="https://www2.novasbe.unl.pt/" target="_blank">Nova SBE</a> Applied Entrepreneurship Project',
+  },
+  en: {
+    nav_problem: 'Problem', nav_solution: 'Solution', nav_modules: 'Modules',
+    nav_about: 'About', nav_cta: 'Request Demo',
+    hero_label: '⚡ ERP for Trade Businesses',
+    hero_h1: 'Your Business.<br>Your System.<br>In <em>Minutes.</em>',
+    hero_p: 'Grundstein AI builds you an ERP system tailored to your trade business. No IT team. No consultants. Just describe what you need.',
+    hero_btn_primary: 'Request Demo →', hero_btn_secondary: 'How it works',
+    hero_trust_1: 'No IT team needed', hero_trust_2: 'Setup in minutes', hero_trust_3: 'Free demo',
+    hero_step1_title: 'Business described', hero_step1_sub: 'Electrical contractor · 8 employees',
+    hero_step2_title: 'Modules configured', hero_step2_sub: 'Jobs · Planning · Invoices',
+    hero_step3_title: 'Dashboard being created...', hero_step3_sub: '~90 seconds remaining',
+    hero_stat1_label: 'Setup time', hero_stat2_label: 'Consultant costs', hero_stat3_label: 'Tailored',
+    problem_label: 'The Problem', problem_title: 'Why small businesses<br>struggle today',
+    problem_subtitle: '70% of all trade businesses still work with Excel and paper. There is no solution that truly fits them.',
+    prob1_title: 'Paperwork everywhere', prob1_desc: 'Excel, WhatsApp, paper, phone. Important info is scattered everywhere and never complete in one place.',
+    prob2_title: 'ERP? Too expensive, too complex.', prob2_desc: 'Traditional systems cost thousands of euros, take months to set up, and still don\'t fit your business.',
+    prob3_title: 'The boss as the bottleneck', prob3_desc: 'Everything runs through the owner. Scheduling, jobs, invoices — that costs 5 to 10 hours every week.',
+    sol_label: 'Our Solution', sol_title: 'Your ERP, built through<br>a conversation',
+    sol_p: 'Describe your business in your own words. Grundstein AI understands your workflows and creates a system that works immediately.',
+    sol_step1: 'Tell us about your business — size, trade, workflows',
+    sol_step2: 'Our AI configures your system automatically',
+    sol_step3: 'Your ERP is ready to use instantly — no training needed',
+    sol_chat_user: '"We\'re an electrical contractor with 8 employees, 2 field teams. We need job scheduling, time tracking and invoicing."',
+    sol_chat_ai: 'Got it! I\'ll create a system with job management, team scheduling, mobile time tracking and automatic invoice generation with DATEV export. Your dashboard will be ready in 2 minutes.',
+    mod_label: 'Our Modules', mod_title: 'Five Modules. One System.<br>All connected.',
+    mod_subtitle: 'From the first customer call to the paid invoice — everything in one system that adapts to your business.',
+    mod1_title: 'Jobs, Clients & Quotes', mod1_desc: 'Customer data, quote creation and job management in one place. From first contact to completed project.',
+    mod2_title: 'Team Scheduling & Assignments', mod2_desc: 'Who works where and when? Calendar view, drag-and-drop scheduling and automatic notifications for changes.',
+    mod3_title: 'Time Tracking & Site Reports', mod3_desc: 'Capture hours, materials and progress directly from your phone. The bridge between the job site and the office.',
+    mod4_title: 'Invoices & DATEV Export', mod4_desc: 'Automatically generate invoices from tracked hours and materials. Export directly to your accountant.',
+    mod5_title: 'Dashboard & Overview', mod5_desc: 'Open in the morning, instantly know where everything stands. Jobs, revenue, team and open tasks at a glance.',
+    soldet_label: 'Our Modules', soldet_title: 'Five Modules. One System.',
+    soldet_subtitle: 'Each module covers a real daily task — from the first customer call to the paid invoice.',
+    m1d_num: 'Module 1', m1d_title: 'Jobs, Clients & Quotes',
+    m1d_tagline: '"From first contact to signed contract."',
+    m1d_desc: 'This is where everything starts. When a client calls, you create the job right here — scope, location, price, team. Every quote, every document, every status change in one place. No more searching through emails or folders. Your entire job pipeline — from enquiry to invoice — at a glance.',
+    m1d_b1: 'Client database with contact details and full job history',
+    m1d_b2: 'Quote creation with templates, line items and PDF export',
+    m1d_b3: 'Job pipeline: Enquiry → Quote → Planned → In Progress → Completed → Invoiced → Paid',
+    m1d_b4: 'Document storage per job: photos, plans, permits, reports',
+    m1d_b5: 'Job creation with scope, location, costing and assigned team', m1d_badge: 'Owner · Office',
+    m2d_num: 'Module 2', m2d_title: 'Team Scheduling & Assignments',
+    m2d_tagline: '"Who works where, when — finally clear."',
+    m2d_desc: 'No more mental calendars and WhatsApp coordination. Your entire team\'s week is visible on one screen. Assign jobs by drag-and-drop — the employee is notified instantly. Someone calls in sick? The system flags every affected job so nothing slips through.',
+    m2d_b1: 'Weekly and daily view per team or employee',
+    m2d_b2: 'Job assignment via drag-and-drop or natural language',
+    m2d_b3: 'Absence management: holidays, sick leave, availability',
+    m2d_b4: 'Automatic push notifications for schedule changes',
+    m2d_b5: 'Conflict detection for double bookings or unavailable staff', m2d_badge: 'Owner · Office',
+    m3d_num: 'Module 3', m3d_title: 'Time Tracking & Site Reports',
+    m3d_tagline: '"What happened on site — captured in seconds."',
+    m3d_desc: 'The bridge between your field team and the office. Workers log hours, materials and notes directly from their phone on site. When a job is done, the office knows immediately — no more phone calls, no waiting for paper timesheets.',
+    m3d_b1: 'Mobile time tracking per job and employee',
+    m3d_b2: 'Start/stop timer or manual time entry',
+    m3d_b3: 'Notes, photos and completion reports on-site',
+    m3d_b4: 'Material tracking per job (type, quantity, source)',
+    m3d_b5: 'Real-time status updates for the office', m3d_badge: 'Technicians · Team Leads',
+    m4d_num: 'Module 4', m4d_title: 'Invoices & Billing',
+    m4d_tagline: '"Work done turns into money faster."',
+    m4d_desc: 'This is where the system pays for itself. Tracked hours and materials flow directly into a professional invoice — no retyping, no forgotten items. DATEV export in one click to keep your accountant happy. XRechnung format for public sector clients is already built in.',
+    m4d_b1: 'Automatically create invoices from time and materials',
+    m4d_b2: 'Customisable invoice templates with your company logo',
+    m4d_b3: 'Invoice status: Draft → Sent → Paid → Overdue',
+    m4d_b4: 'DATEV export for seamless handover to your accountant',
+    m4d_b5: 'XRechnung format for public sector clients', m4d_badge: 'Office · Owner',
+    m5d_num: 'Module 5', m5d_title: 'Dashboard & Overview',
+    m5d_tagline: '"Open in the morning, instantly know where everything stands."',
+    m5d_desc: 'The reward for using the other four modules. One screen with a complete business overview — which jobs are running, who is available, what is overdue and how much revenue is in the pipeline. No spreadsheets. No guessing. Just clarity.',
+    m5d_b1: 'Job overview: open, in progress, completed, overdue',
+    m5d_b2: 'Revenue overview: invoiced, paid, outstanding',
+    m5d_b3: 'Team utilisation: who is busy, who has capacity this week',
+    m5d_b4: 'Alerts and to-dos: overdue invoices, missing time entries',
+    m5d_b5: 'Weekly summary with key business metrics', m5d_badge: 'Owner',
+    comms_title: 'Integrated Communication — End the WhatsApp chaos',
+    comms_desc: 'Every module includes job-linked comments, push notifications and an activity feed. Your team stays in sync — no scattered messages, missed calls or "didn\'t see it" excuses.',
+    comms_tag1: 'Job Comments', comms_tag2: 'Push Notifications', comms_tag3: 'Activity Feed',
+    stats_label: 'Validated', stats_title: 'What we learned from real businesses',
+    stat1_label: 'interviews with trade businesses', stat2_label: 'still work with Excel and paper',
+    stat3_label: 'admin hours per week for the owner',
+    about_label: 'About Us', about_title: 'Who is behind Grundstein?',
+    about_text: 'Five students from Nova SBE with a shared goal: giving trade businesses a tool that truly fits them. Simple, affordable and ready to use immediately. Built from real conversations with real businesses.',
+    founder_label: 'Founder Story',
+    founder_quote: '"Most tradespeople don\'t fail because of the technical work on site. They fail because of the paperwork afterwards."',
+    founder_meta: 'Jonathan Sperl · Co-Founder & Industry Lead · 7 min read', founder_cta: 'Read interview →',
+    cta_label: 'Get started', cta_title: 'Ready to leave Excel<br>behind?',
+    cta_subtitle: 'See for yourself how simple ERP can be. Request a demo now.',
+    cta_btn: 'Request demo now →',
+    contact_label: 'Contact', contact_title: 'Let\'s talk',
+    contact_subtitle: 'Whether demo, questions or feedback — we look forward to hearing from you.',
+    form_name_label: 'Name', form_name_ph: 'John Smith',
+    form_email_label: 'Email', form_email_ph: 'john@company.com',
+    form_company_label: 'Company name', form_company_ph: 'Smith Electrical Ltd',
+    form_size_label: 'Number of employees',
+    form_size_opt0: 'Please select', form_size_opt1: '1–5 employees',
+    form_size_opt2: '6–10 employees', form_size_opt3: '11–15 employees', form_size_opt4: 'More than 15',
+    form_msg_label: 'Message', form_msg_ph: 'Tell us briefly about your business and what you\'re interested in...',
+    form_submit: 'Send →',
+    contact_info_title: 'Or reach us directly',
+    contact_info_p: 'We usually respond within 24 hours. You can also contact us directly via LinkedIn.',
+    footer_text: '© 2026 Grundstein AI — A <a href="https://www2.novasbe.unl.pt/" target="_blank">Nova SBE</a> Applied Entrepreneurship Project',
+  }
+};
+
+let currentLang = 'de';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.dataset.i18nPh;
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+  document.getElementById('langBtn').textContent = lang === 'de' ? 'EN' : 'DE';
+  document.documentElement.lang = lang;
+}
+
+function toggleLang() {
+  setLang(currentLang === 'de' ? 'en' : 'de');
+}
+
+// ── PAGE SWITCHING ─────────────────────────────────────────────
 function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
@@ -1602,30 +1844,28 @@ function showPage(page) {
   document.getElementById('navLinks').classList.remove('open');
 }
 
-// Mobile nav toggle
+// ── MOBILE NAV ─────────────────────────────────────────────────
 function toggleNav() {
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-// Scroll animations
+// ── SCROLL ANIMATIONS ──────────────────────────────────────────
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Form handler
+// ── FORM HANDLER ───────────────────────────────────────────────
 function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button');
   btn.textContent = '✓ Gesendet!';
   btn.style.background = 'var(--emerald-dark)';
   setTimeout(() => {
-    btn.textContent = 'Absenden →';
+    btn.textContent = translations[currentLang].form_submit;
     btn.style.background = '';
   }, 3000);
 }
